@@ -7,6 +7,7 @@ from blog.models import Post, Comment
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     comment_set = serializers.HyperlinkedRelatedField(many=True, view_name='comment-detail', read_only=True)
+    # owner = serializers.HyperlinkedRelatedField(many=False, view_name='user-detail', read_only=True)
 
     class Meta:
         model = Post
